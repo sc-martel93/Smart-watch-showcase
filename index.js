@@ -23,13 +23,27 @@ redButton.addEventListener('click', () => changeWatch("red"))
 let watchDisplay = document.querySelector('.watch-display')
 
 const viewTime = () => {
-    console.log(watchDisplay)
-    const updateClock = () => {
-        let time = new Date().toLocaleTimeString()
-        watchDisplay.appendChild(document.createTextNode(time))
 
+    const updateClock = () => {
+        let time = new Date()
+        let hour = time.getHours()
+        let minutes = time.getMinutes()
+        let seconds = time.getSeconds()
+
+        if (hour > 12) {
+            hour -= 12
+            hour = "0" + hour
+        }
+        if (minutes < 10)
+            minutes = '0' + minutes
+        if (seconds < 10)
+            seconds = '0' + seconds
+
+        let display = `${hour}:${minutes}:${seconds}`
+        watchDisplay.innerHTML = display
     }
 
+    updateClock()
     setInterval(updateClock, 1000)
 }
 
