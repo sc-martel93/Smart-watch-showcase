@@ -22,6 +22,7 @@ redButton.addEventListener('click', () => changeWatch("red"))
 
 let watchDisplay = document.querySelector('.watch-display')
 
+
 const viewTime = () => {
 
     const updateClock = () => {
@@ -42,6 +43,7 @@ const viewTime = () => {
 
         let display = `${hour}:${minutes}:${seconds}`
         let newDisplay = document.createElement('h1')
+        newDisplay.classList.add("time")
         newDisplay.innerHTML = display
 
         let currentDisplay = watchDisplay.firstElementChild
@@ -51,14 +53,29 @@ const viewTime = () => {
             watchDisplay.replaceChild(newDisplay, currentDisplay)
     }
 
+    let clockInterval = setInterval(updateClock, 1000)
+
     updateClock()
-    setInterval(updateClock, 1000)
 }
+
+
 
 let timeButton = document.querySelector('.time-btn')
 timeButton.addEventListener('click', () => viewTime())
 
+const viewHeartRate = () => {
+
+    let newDisplay = document.createElement('h1')
+    newDisplay.classList.add('heart-rate')
+    newDisplay.innerHTML = '77'
+
+
+    let currentDisplay = watchDisplay.firstElementChild
+    if (currentDisplay === null)
+        watchDisplay.appendChild(newDisplay)
+    else
+        watchDisplay.replaceChild(newDisplay, currentDisplay)
+}
+
 let heartRateButton = document.querySelector('.heart-btn')
-heartRateButton.addEventListener('click', function () {
-    console.log(watchDisplay.innerHTML)
-})
+heartRateButton.addEventListener('click', () => viewHeartRate())
