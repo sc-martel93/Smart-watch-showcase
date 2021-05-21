@@ -1,7 +1,6 @@
 const changeWatch = (color) => {
     let watchImg = document.getElementById('watch-img')
     watchImg.src = `../SmartWatch/assets/${color}-watch.png`
-
 }
 
 blackButton = document.querySelector('.black')
@@ -22,7 +21,6 @@ redButton.addEventListener('click', () => changeWatch("red"))
 let watchDisplay = document.querySelector('.watch-display')
 
 var clockTimer = null
-
 
 const viewTime = () => {
 
@@ -59,7 +57,6 @@ const viewTime = () => {
     clockTimer = setInterval(updateClock, 1000);
     updateClock()
 }
-
 
 let timeButton = document.querySelector('.time-btn')
 timeButton.addEventListener('click', () => viewTime())
