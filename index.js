@@ -49,8 +49,11 @@ const viewTime = () => {
         let currentDisplay = watchDisplay.firstElementChild
         if (currentDisplay === null)
             watchDisplay.appendChild(newDisplay)
-        else
-            watchDisplay.replaceChild(newDisplay, currentDisplay)
+        else {
+            watchDisplay.innerHTML = ''
+            watchDisplay.append(newDisplay)
+        }
+
     }
 
     let clockInterval = setInterval(updateClock, 1000)
@@ -64,17 +67,22 @@ let timeButton = document.querySelector('.time-btn')
 timeButton.addEventListener('click', () => viewTime())
 
 const viewHeartRate = () => {
+    let heartImage = document.createElement('img')
+    heartImage.classList.add('heart-img')
+    heartImage.src = './assets/heart.png'
 
-    let newDisplay = document.createElement('h1')
-    newDisplay.classList.add('heart-rate')
-    newDisplay.innerHTML = '77'
-
+    let heartRate = document.createElement('h1')
+    heartRate.classList.add('heart-rate')
+    heartRate.innerHTML = '77'
 
     let currentDisplay = watchDisplay.firstElementChild
     if (currentDisplay === null)
-        watchDisplay.appendChild(newDisplay)
-    else
-        watchDisplay.replaceChild(newDisplay, currentDisplay)
+        watchDisplay.append(heartImage, heartRate)
+    else {
+        watchDisplay.innerHTML = ''
+        watchDisplay.append(heartImage, heartRate)
+    }
+
 }
 
 let heartRateButton = document.querySelector('.heart-btn')

@@ -85,6 +85,30 @@ button:focus{
     outline:none;
 }
 
+.buy-btn {
+    background-color:orange;
+    width: 250px;
+}
+
+@keyframes heart-beat {
+    25%{transform: scale(1)}
+    50% {transform: scale(1.2)}
+    75%{transform: scale(.75)}
+    99%{transform: scale(1)}
+}
+
+.heart-img {
+    max-width: 125px;
+    margin-left: 23px;
+    animation-name: heart-beat;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.heart-rate {
+    margin-left: 60px;
+}
+
 
 .black {
     background-color: #23211f;
