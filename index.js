@@ -32,7 +32,8 @@ const viewTime = () => {
 
         if (hour > 12) {
             hour -= 12
-            hour = "0" + hour
+            if (hour < 10)
+                hour = "0" + hour
         }
         if (minutes < 10)
             minutes = '0' + minutes
@@ -40,7 +41,14 @@ const viewTime = () => {
             seconds = '0' + seconds
 
         let display = `${hour}:${minutes}:${seconds}`
-        watchDisplay.innerHTML = display
+        let newDisplay = document.createElement('h1')
+        newDisplay.innerHTML = display
+
+        let currentDisplay = watchDisplay.firstElementChild
+        if (currentDisplay === null)
+            watchDisplay.appendChild(newDisplay)
+        else
+            watchDisplay.replaceChild(newDisplay, currentDisplay)
     }
 
     updateClock()
@@ -49,3 +57,8 @@ const viewTime = () => {
 
 let timeButton = document.querySelector('.time-btn')
 timeButton.addEventListener('click', () => viewTime())
+
+let heartRateButton = document.querySelector('.heart-btn')
+heartRateButton.addEventListener('click', function () {
+    console.log(watchDisplay.innerHTML)
+})
