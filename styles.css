@@ -23,7 +23,7 @@ button {
 button:hover,
 button:focus{
     border: 1.5px solid orange !important;
-    background-color: rgba(0, 0, 0, .25)
+    background-color: rgba(0, 0, 0, 0.25)
 }
 
 .container {
@@ -48,7 +48,7 @@ button:focus{
     color: white;
     z-index: 100;
     position: relative;
-    right: 319px;
+    right: 315px;
     letter-spacing: 3px;
 }
 
