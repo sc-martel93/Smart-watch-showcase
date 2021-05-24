@@ -1,6 +1,6 @@
 const changeWatch = (color) => {
     let watchImg = document.getElementById('watch-img')
-    watchImg.src = `../SmartWatch/assets/${color}-watch.png`
+    watchImg.src = `./assets/${color}-watch.png`
 }
 
 blackButton = document.querySelector('.black')
